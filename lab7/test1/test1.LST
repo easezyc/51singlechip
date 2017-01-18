@@ -1,0 +1,71 @@
+A51 MACRO ASSEMBLER  TEST1                                                                12/21/2016 11:57:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test1.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE test1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0020                 1     T1MOD_W EQU     00100000B
+                       2                             ;GATE1=0
+                       3                             ;C/T1=0
+                       4                             ;M1=1,M0=0
+  00FD                 5     BPS_I   EQU     0FDH
+0000                   6                     ORG 0000H
+0000 020030            7                     LJMP    START
+0030                   8                     ORG     0030H
+0030 12004A            9     START:  LCALL   INIT
+0033 C299             10     MLOOP:  CLR     TI
+0035 7906             11                     MOV     R1,#6
+0037 7B00             12                     MOV     R3,#00H
+0039 EB               13     LOOP:   MOV     A,R3
+003A 90005A           14                     MOV     DPTR,#TABLE
+003D 93               15                     MOVC    A,@A+DPTR
+003E F599             16                     MOV     SBUF,A
+0040 3099FD           17     WAIT:   JNB     TI,WAIT
+0043 C299             18                     CLR     TI
+0045 0B               19                     INC     R3
+0046 D9F1             20                     DJNZ    R1,LOOP
+0048 80E9             21                     SJMP    MLOOP
+004A C29F             22     INIT:   CLR     SM0
+004C D29E             23                     SETB    SM1
+004E 758920           24                     MOV     TMOD,#T1MOD_W
+0051 758DFD           25                     MOV     TH1,#BPS_I
+0054 758BFD           26                     MOV     TL1,#BPS_I
+0057 D28E             27                     SETB    TR1
+0059 22               28                     RET
+005A                  29     TABLE:
+005A 48656C6C         30                     DB      'H','e','l','l','o',0DH,0AH
+005E 6F0D0A                  
+                      31                     END
+A51 MACRO ASSEMBLER  TEST1                                                                12/21/2016 11:57:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BPS_I. . . . . . .  N NUMB   00FDH   A   
+INIT . . . . . . .  C ADDR   004AH   A   
+LOOP . . . . . . .  C ADDR   0039H   A   
+MLOOP. . . . . . .  C ADDR   0033H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+START. . . . . . .  C ADDR   0030H   A   
+T1MOD_W. . . . . .  N NUMB   0020H   A   
+TABLE. . . . . . .  C ADDR   005AH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+WAIT . . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

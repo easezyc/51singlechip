@@ -1,0 +1,31 @@
+C51 COMPILER V9.01   SOUND                                                                 12/25/2016 13:31:38 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE SOUND
+OBJECT MODULE PLACED IN sound.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE sound.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<head.h>
+   2          sbit speaker=P1^7;
+   3          void Task3_Sound(void) _task_ TASK3      //¥ÌŒÛÃ· æ“Ù
+   4          {
+   5   1              while(1){
+   6   2                      if(sound==1)speaker=~speaker;                   
+   7   2              }
+   8   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     11    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,157 @@
+C51 COMPILER V9.01   INPUT                                                                 12/25/2016 13:31:38 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE INPUT
+OBJECT MODULE PLACED IN input.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE input.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<head.h>
+   2          uchar KeyEncoded(uchar KeyScanCode1,uchar KeyScanCode2)//检查键盘具体按键
+   3          {   
+   4   1              uchar KeyCode=0;
+   5   1              switch(KeyScanCode2){
+   6   2                      case 0x1E:
+   7   2                              switch(KeyScanCode1){
+   8   3                                      case 0x3E:KeyCode='a';break;
+   9   3                                      case 0x3D:KeyCode='f';break;
+  10   3                                      case 0x3B:KeyCode='7';break;
+  11   3                                      case 0x37:KeyCode='4';break;
+  12   3                                      case 0x2F:KeyCode='1';break;
+  13   3                                      case 0x1F:KeyCode='0';break;    
+  14   3                              }
+  15   2                              break;
+  16   2                      case 0x1D:
+  17   2                              switch(KeyScanCode1){
+  18   3                                      case 0x3E:KeyCode='b';break;
+  19   3                                      case 0x3D:KeyCode='g';break;
+  20   3                                      case 0x3B:KeyCode='8';break;
+  21   3                                      case 0x37:KeyCode='5';break;
+  22   3                                      case 0x2F:KeyCode='2';break;
+  23   3                                      case 0x1F:KeyCode='0';break;    
+  24   3                              }
+  25   2                              break;
+  26   2                      case 0x1B:
+  27   2                              switch(KeyScanCode1){
+  28   3                                      case 0x3E:KeyCode='c';break;
+  29   3                                      case 0x3D:KeyCode='h';break;
+  30   3                                      case 0x3B:KeyCode='9';break;
+  31   3                                      case 0x37:KeyCode='6';break;
+  32   3                                      case 0x2F:KeyCode='3';break;
+  33   3                                      case 0x1F:KeyCode='.';break;    
+  34   3                              }
+  35   2                              break;
+  36   2                      case 0x17:
+  37   2                              switch(KeyScanCode1){
+  38   3                                      case 0x3E:KeyCode='d';break;
+  39   3                                      case 0x3D:KeyCode='i';break;
+  40   3                                      case 0x3B:KeyCode='k';break;
+  41   3                                      case 0x37:KeyCode='m';break;
+  42   3                                      case 0x2F:KeyCode='o';break;
+  43   3                                      case 0x1F:KeyCode='q';break;    
+  44   3                              }
+  45   2                              break;
+  46   2                      case 0x0F:
+  47   2                              switch(KeyScanCode1){
+  48   3                                      case 0x3E:KeyCode='e';break;
+  49   3                                      case 0x3D:KeyCode='j';break;
+  50   3                                      case 0x3B:KeyCode='l';break;
+  51   3                                      case 0x37:KeyCode='n';break;
+  52   3                                      case 0x2F:KeyCode='p';break;
+  53   3                                      case 0x1F:KeyCode='r';break;    
+  54   3                              }
+  55   2                              break;
+C51 COMPILER V9.01   INPUT                                                                 12/25/2016 13:31:38 PAGE 2   
+
+  56   2              }
+  57   1              return KeyCode;
+  58   1      }
+  59          uchar KeyScan(void)             //扫描键盘
+  60          {        
+  61   1              uchar ScanValue;
+  62   1              KeyPortCol=COLUMN0;
+  63   1              ScanValue=KeyPortRan&NULLKEY;
+  64   1              if(ScanValue!=NULLKEY){
+  65   2                      return KeyEncoded(ScanValue,(COLUMN0&NULLCOLUMN));
+  66   2              }
+  67   1              KeyPortCol=COLUMN1;
+  68   1              ScanValue=KeyPortRan&NULLKEY;
+  69   1              if(ScanValue!=NULLKEY){
+  70   2                      return KeyEncoded(ScanValue,(COLUMN1&NULLCOLUMN));
+  71   2              }
+  72   1              KeyPortCol=COLUMN2;
+  73   1              ScanValue=KeyPortRan&NULLKEY;
+  74   1              if(ScanValue!=NULLKEY){
+  75   2                      return KeyEncoded(ScanValue,(COLUMN2&NULLCOLUMN));
+  76   2              }
+  77   1              KeyPortCol=COLUMN3;
+  78   1              ScanValue=KeyPortRan&NULLKEY;
+  79   1              if(ScanValue!=NULLKEY){
+  80   2                      return KeyEncoded(ScanValue,(COLUMN3&NULLCOLUMN));
+  81   2              }
+  82   1              KeyPortCol=COLUMN4;
+  83   1              ScanValue=KeyPortRan&NULLKEY;
+  84   1              if(ScanValue!=NULLKEY){
+  85   2                      return KeyEncoded(ScanValue,(COLUMN4&NULLCOLUMN));
+  86   2              }
+  87   1              return 0;
+  88   1      }
+  89          void choose(uchar t)    //函数功能调用
+  90          {
+  91   1              switch(t){
+  92   2                      case 'r':addnum();break; //确认添加数字
+  93   2                      case 'h':DisplayFlag=1;showmark=1;break;        //清屏
+  94   2                      case 'f':backspace();break;      //退格 
+  95   2                      case 'm':sum();break;   //求和
+  96   2                      case 'n':powsum();break;   //求平方和
+  97   2                      case 'k':average1();break;   //求平均数
+  98   2                      case 'l':average2();break;   //求平方平均数
+  99   2                      case 'o':standarddeviation();break;  //求标准差
+ 100   2                      case 'p':variance();break;   //求方差
+ 101   2                      case 'q':change();break;
+ 102   2              }
+ 103   1      }
+ 104          void Task2_ReadKey(void) _task_ TASK2     //进程2扫描输入并调用相应函数或者输入到进程1
+ 105          {                
+ 106   1              uchar KeyScanValue=NULLKEY|NULLCOLUMN;
+ 107   1              uchar t=NULLKEY|NULLCOLUMN;
+ 108   1              while(1){
+ 109   2                      if(mark3==0){
+ 110   3                              KeyScanValue=KeyScan();
+ 111   3                              choose(KeyScanValue);
+ 112   3                              mark3=1;
+ 113   3                      }
+ 114   2                      else {
+ 115   3                              t=KeyScan();
+ 116   3                              if(t!=KeyScanValue){
+ 117   4                                      mark3=0;
+C51 COMPILER V9.01   INPUT                                                                 12/25/2016 13:31:38 PAGE 3   
+
+ 118   4                              }
+ 119   3                      }
+ 120   2                      if(mark3==0&&((KeyScanValue>='0'&&KeyScanValue<='9')||KeyScanValue=='.')) //如果是数字或者小数点则输入
+ 121   2                      {
+ 122   3                              KeyBuffer=KeyScanValue;
+ 123   3                              addmark=1;
+ 124   3                              showmark=0;
+ 125   3                              sound=0;
+ 126   3                              DisplayFlag=1;
+ 127   3                              os_switch_task();
+ 128   3                      }
+ 129   2              }
+ 130   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    616    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

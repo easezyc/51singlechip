@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  BIT                                                                  10/31/2016 16:24:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN bit.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE bit.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG     0000H
+0000 020030            2             LJMP    START
+0030                   3             ORG      0030H
+0030                   4     START:
+0030 791F              5             MOV     R1,#1FH
+0032 7A10              6             MOV     R2,#10H
+0034 7C00              7             MOV     R4,#00H
+0036                   8     LOOP:
+0036 7B09              9             MOV     R3,#9H
+0038 09               10             INC     R1
+0039 E9               11             MOV     A,R1
+003A B43004           12             CJNE    A,#030H,D
+003D 8C50             13             MOV     50H,R4
+003F 80FE             14             SJMP    $
+0041                  15     D:
+0041 E7               16             MOV     A,@R1
+0042                  17     F:
+0042 1B               18             DEC     R3
+0043 FD               19             MOV R5,A
+0044 EB               20             MOV A,R3
+0045 60EF             21             JZ LOOP
+0047 ED               22             MOV A,R5
+0048 33               23             RLC     A
+0049 4002             24             JC      G
+004B 80F5             25             JMP     F
+004D                  26     G:
+004D 0C               27             INC     R4
+004E 80F2             28             JMP     F       
+                      29             END     
+A51 MACRO ASSEMBLER  BIT                                                                  10/31/2016 16:24:05 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D. . . . . . . . .  C ADDR   0041H   A   
+F. . . . . . . . .  C ADDR   0042H   A   
+G. . . . . . . . .  C ADDR   004DH   A   
+LOOP . . . . . . .  C ADDR   0036H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

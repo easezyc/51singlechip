@@ -1,0 +1,112 @@
+A51 MACRO ASSEMBLER  XUANZUO                                                              11/15/2016 20:03:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN xuanzuo.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE xuanzuo.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0092                 1     SW1             BIT             P1.2
+  0093                 2     SW2             BIT             P1.3
+  0094                 3     SW3             BIT             P1.4
+  0095                 4     SW4             BIT             P1.5
+  00A0                 5     A_LAMP  EQU             P2
+  007F                 6     INITG   EQU             01111111B
+  00BF                 7     INITR   EQU             10111111B
+  0003                 8     LEN             EQU             3h
+0000                   9             ORG             0000H
+0000 020030           10             LJMP    START
+0030                  11             ORG             0030H
+0030 7900             12     START:  MOV     R1,#00H
+0032 7A00             13                     MOV     R2,#00H
+0034 75A0FE           14                     MOV     A_LAMP,#0FEH
+0037 209204           15     NEXT:   JB      SW1,NEXT1
+003A 7900             16             MOV     R1,#00H
+003C 80F9             17             SJMP    NEXT
+003E 209304           18     NEXT1:  JB      SW2,NEXT2
+0041 7901             19             MOV     R1,#01H
+0043 80F2             20             SJMP    NEXT
+0045 209407           21     NEXT2:  JB      SW3,NEXT3
+0048 7A01             22             MOV     R2,#01H
+004A 75A07F           23             MOV     A_LAMP,#INITG
+004D 80E8             24             SJMP    NEXT
+004F 209507           25     NEXT3:  JB      SW4,CAL
+0052 7A01             26             MOV     R2,#01H
+0054 75A0BF           27             MOV     A_LAMP,#INITR
+0057 80DE             28             SJMP    NEXT
+0059                  29     CAL:    
+0059 EA               30             MOV A,R2
+005A 7011             31             JNZ     PT
+005C E9               32             MOV     A,R1
+005D 6007             33             JZ      T2
+005F E5A0             34     T11:    MOV     A,A_LAMP
+0061 23               35             RL      A;Дж
+0062 F5A0             36             MOV     A_LAMP,A
+0064 8018             37             SJMP    O
+0066 E5A0             38     T2:     MOV     A,A_LAMP
+0068 03               39             RR      A;Лі
+0069 F5A0             40             MOV     A_LAMP,A
+006B 8011             41             SJMP    O
+006D E9               42     PT:     MOV     A,R1
+006E 6008             43             JZ      T4
+0070 E5A0             44     T3:     MOV     A,A_LAMP
+0072 23               45             RL      A;Дж
+0073 23               46             RL      A;Дж
+0074 F5A0             47             MOV     A_LAMP,A
+0076 8006             48             SJMP    O
+0078 E5A0             49     T4:     MOV     A,A_LAMP
+007A 03               50             RR      A;Лі
+007B 03               51             RR      A;Лі
+007C F5A0             52             MOV     A_LAMP,A
+007E                  53     O:      
+007E 7D03             54             MOV     R5,#LEN
+0080 120085           55             LCALL   DELAY
+0083 80B2             56             SJMP    NEXT
+0085 7F00             57     DELAY:  MOV             R7,#00H
+0087 7E00             58                     MOV             R6,#00H
+A51 MACRO ASSEMBLER  XUANZUO                                                              11/15/2016 20:03:02 PAGE     2
+
+0089 DFFE             59     LOOP:   DJNZ    R7,LOOP
+008B DEFC             60                     DJNZ    R6,LOOP
+008D DDFA             61                     DJNZ    R5,LOOP
+008F 22               62                     RET
+                      63             END
+A51 MACRO ASSEMBLER  XUANZUO                                                              11/15/2016 20:03:02 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+CAL. . . . . . . .  C ADDR   0059H   A   
+DELAY. . . . . . .  C ADDR   0085H   A   
+INITG. . . . . . .  N NUMB   007FH   A   
+INITR. . . . . . .  N NUMB   00BFH   A   
+LEN. . . . . . . .  N NUMB   0003H   A   
+LOOP . . . . . . .  C ADDR   0089H   A   
+NEXT . . . . . . .  C ADDR   0037H   A   
+NEXT1. . . . . . .  C ADDR   003EH   A   
+NEXT2. . . . . . .  C ADDR   0045H   A   
+NEXT3. . . . . . .  C ADDR   004FH   A   
+O. . . . . . . . .  C ADDR   007EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PT . . . . . . . .  C ADDR   006DH   A   
+START. . . . . . .  C ADDR   0030H   A   
+SW1. . . . . . . .  B ADDR   0090H.2 A   
+SW2. . . . . . . .  B ADDR   0090H.3 A   
+SW3. . . . . . . .  B ADDR   0090H.4 A   
+SW4. . . . . . . .  B ADDR   0090H.5 A   
+T11. . . . . . . .  C ADDR   005FH   A   
+T2 . . . . . . . .  C ADDR   0066H   A   
+T3 . . . . . . . .  C ADDR   0070H   A   
+T4 . . . . . . . .  C ADDR   0078H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

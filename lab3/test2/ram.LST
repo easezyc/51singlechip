@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  RAM                                                                  10/31/2016 16:13:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN ram.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE ram.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG  0000H
+0000 020030            2             LJMP  START
+0030                   3             ORG  0030H
+0030                   4     START:
+0030 7800              5             MOV     R0,#00H
+0032 794F              6             MOV     R1,#4FH
+0034                   7     LOOP:
+0034 E7                8             MOV     A,@R1
+0035 7001              9             JNZ     F
+0037 08               10             INC     R0
+0038                  11     F:
+0038 19               12             DEC     R1
+0039 B901F8           13             CJNE    R1,#01H,LOOP
+003C 8850             14             MOV     50H,R0
+003E 80FE             15             SJMP    $
+                      16             END
+                                     
+A51 MACRO ASSEMBLER  RAM                                                                  10/31/2016 16:13:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+F. . . . . . . . .  C ADDR   0038H   A   
+LOOP . . . . . . .  C ADDR   0034H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

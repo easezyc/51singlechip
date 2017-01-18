@@ -1,0 +1,116 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/15/2016  20:03:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE xuanzuo.obj TO xuanzuo RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  xuanzuo.obj (XUANZUO)
+
+
+LINK MAP OF MODULE:  xuanzuo (XUANZUO)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0090H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  xuanzuo (XUANZUO)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        XUANZUO
+  D:00A0H         SYMBOL        A_LAMP
+  C:0059H         SYMBOL        CAL
+  C:0085H         SYMBOL        DELAY
+  N:007FH         SYMBOL        INITG
+  N:00BFH         SYMBOL        INITR
+  N:0003H         SYMBOL        LEN
+  C:0089H         SYMBOL        LOOP
+  C:0037H         SYMBOL        NEXT
+  C:003EH         SYMBOL        NEXT1
+  C:0045H         SYMBOL        NEXT2
+  C:004FH         SYMBOL        NEXT3
+  C:007EH         SYMBOL        O
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  C:006DH         SYMBOL        PT
+  C:0030H         SYMBOL        START
+  B:0090H.2       SYMBOL        SW1
+  B:0090H.3       SYMBOL        SW2
+  B:0090H.4       SYMBOL        SW3
+  B:0090H.5       SYMBOL        SW4
+  C:005FH         SYMBOL        T11
+  C:0066H         SYMBOL        T2
+  C:0070H         SYMBOL        T3
+  C:0078H         SYMBOL        T4
+  C:0000H         LINE#         10
+  C:0030H         LINE#         12
+  C:0032H         LINE#         13
+  C:0034H         LINE#         14
+  C:0037H         LINE#         15
+  C:003AH         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/15/2016  20:03:02  PAGE 2
+
+
+  C:003CH         LINE#         17
+  C:003EH         LINE#         18
+  C:0041H         LINE#         19
+  C:0043H         LINE#         20
+  C:0045H         LINE#         21
+  C:0048H         LINE#         22
+  C:004AH         LINE#         23
+  C:004DH         LINE#         24
+  C:004FH         LINE#         25
+  C:0052H         LINE#         26
+  C:0054H         LINE#         27
+  C:0057H         LINE#         28
+  C:0059H         LINE#         30
+  C:005AH         LINE#         31
+  C:005CH         LINE#         32
+  C:005DH         LINE#         33
+  C:005FH         LINE#         34
+  C:0061H         LINE#         35
+  C:0062H         LINE#         36
+  C:0064H         LINE#         37
+  C:0066H         LINE#         38
+  C:0068H         LINE#         39
+  C:0069H         LINE#         40
+  C:006BH         LINE#         41
+  C:006DH         LINE#         42
+  C:006EH         LINE#         43
+  C:0070H         LINE#         44
+  C:0072H         LINE#         45
+  C:0073H         LINE#         46
+  C:0074H         LINE#         47
+  C:0076H         LINE#         48
+  C:0078H         LINE#         49
+  C:007AH         LINE#         50
+  C:007BH         LINE#         51
+  C:007CH         LINE#         52
+  C:007EH         LINE#         54
+  C:0080H         LINE#         55
+  C:0083H         LINE#         56
+  C:0085H         LINE#         57
+  C:0087H         LINE#         58
+  C:0089H         LINE#         59
+  C:008BH         LINE#         60
+  C:008DH         LINE#         61
+  C:008FH         LINE#         62
+  -------         ENDMOD        XUANZUO
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0063H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=144
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

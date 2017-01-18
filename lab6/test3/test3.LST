@@ -1,0 +1,92 @@
+C51 COMPILER V9.01   TEST3                                                                 11/26/2016 14:27:04 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE TEST3
+OBJECT MODULE PLACED IN test3.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE test3.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #define uchar unsigned char
+   3          sbit speaker=P1^0;
+   4          uchar T_Mod=0x11;
+   5          uchar T10msL=0xD8;
+   6          uchar T10msH=0xEF;
+   7          uchar index;
+   8          uchar tint_c;
+   9          uchar note_l;
+  10          uchar note_h;
+  11          uchar ic_tmp=0;
+  12          uchar temp=0;
+  13          code uchar musicfreqh[]={
+  14                  0xF2,0xF3,0xF5,0xF5,0xF6,0xF7,0xF8,
+  15                  0xF9,0xF9,0xFA,0xFA,0xFB,0xFB,0xFC,0xFC,
+  16                  0xFC,0xFD,0xFD,0xFD,0xFD,0xFE,
+  17                  0xFE,0xFE,0xFE,0xFE,0xFE,0xFE,0xFE
+  18                  };
+  19          code uchar musicfreql[]={
+  20                  0x42,0xC1,0x17,0xB6,0xD0,0xD1,0xB6,
+  21                  0x21,0xE1,0x8C,0xD8,0x68,0xE9,0x5B,0x8F,
+  22                  0xEE,0x44,0x6B,0xB4,0xF4,0x2D,
+  23                  0x47,0x77,0xA2,0xB6,0xDA,0xFA,0x16};
+  24          code uchar musicn_del[]={100,100,100,100,100,100,100,100};
+  25          code uchar musicnotet[]={7,8,9,10,11,12,13,14,00};
+  26          void timer_initial(void){
+  27   1              TMOD=T_Mod;
+  28   1              TL1=T10msL;
+  29   1              TH1=T10msH;
+  30   1              ET0=1;
+  31   1              ET1=1;
+  32   1      }
+  33          void Time0(void) interrupt 1 using 1{
+  34   1              TR0=0;
+  35   1              TL0=note_l;
+  36   1              TH0=note_h;
+  37   1              speaker=~speaker;
+  38   1              TR0=1;
+  39   1      }
+  40          void Time1(void) interrupt 3 using 2{
+  41   1              TR1=0;
+  42   1              TL1=T10msL;
+  43   1              TH1=T10msH;
+  44   1              ic_tmp++;
+  45   1              TR1=1;
+  46   1      }
+  47          void main()
+  48          {
+  49   1              while(1){
+  50   2                      index=0;
+  51   2                      timer_initial();
+  52   2                      for(index=0;musicnotet[index]!=0;index++){
+  53   3                              EA=0;
+  54   3                              TR0=0;
+  55   3                              TR1=0;
+C51 COMPILER V9.01   TEST3                                                                 11/26/2016 14:27:04 PAGE 2   
+
+  56   3                              ic_tmp=0;
+  57   3                              tint_c=musicn_del[index];
+  58   3                              temp=musicnotet[index];
+  59   3                              note_l=musicfreql[temp];
+  60   3                              note_h=musicfreqh[temp];
+  61   3                              TR0=1;
+  62   3                              TR1=1;
+  63   3                              EA=1;
+  64   3                              while(tint_c!=ic_tmp);
+  65   3                      }
+  66   2              }
+  67   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    105    ----
+   CONSTANT SIZE    =     73    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      9    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

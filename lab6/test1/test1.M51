@@ -1,0 +1,126 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/14/2016  23:40:51  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE test1.obj TO test1 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  test1.obj (TEST1)
+
+
+LINK MAP OF MODULE:  test1 (TEST1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     008FH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  test1 (TEST1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST1
+  D:00A0H         SYMBOL        A_LAMP
+  N:0014H         SYMBOL        A_TIME1
+  N:00C8H         SYMBOL        A_TIME10
+  N:0064H         SYMBOL        A_TIME5
+  N:0010H         SYMBOL        DEL_LEN
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.1       SYMBOL        ET0
+  B:00A8H.3       SYMBOL        ET1
+  C:0081H         SYMBOL        EW
+  N:0066H         SYMBOL        EW_G
+  C:0086H         SYMBOL        EX
+  C:0088H         SYMBOL        EXIT
+  C:006DH         SYMBOL        FIVE
+  C:0035H         SYMBOL        INIT
+  N:00FFH         SYMBOL        I_TH0
+  N:003CH         SYMBOL        I_TH1
+  N:00FDH         SYMBOL        I_TL0
+  N:00B0H         SYMBOL        I_TL1
+  B:0020H.0       SYMBOL        MARK1
+  B:0020H.1       SYMBOL        MARK2
+  C:0033H         SYMBOL        MLOOP
+  C:0068H         SYMBOL        ONE
+  D:00A0H         SYMBOL        P2
+  C:0078H         SYMBOL        SN
+  N:0099H         SYMBOL        SN_G
+  C:0030H         SYMBOL        START
+  C:0054H         SYMBOL        T0_S
+  C:0061H         SYMBOL        T1_S
+  C:0072H         SYMBOL        TEN
+  D:008CH         SYMBOL        TH0
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/14/2016  23:40:51  PAGE 2
+
+
+  D:008DH         SYMBOL        TH1
+  C:0075H         SYMBOL        TIME
+  D:008AH         SYMBOL        TL0
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  N:0015H         SYMBOL        TMOD_M
+  B:0088H.4       SYMBOL        TR0
+  B:0088H.6       SYMBOL        TR1
+  C:0000H         LINE#         16
+  C:000BH         LINE#         18
+  C:001BH         LINE#         20
+  C:0030H         LINE#         22
+  C:0033H         LINE#         24
+  C:0035H         LINE#         26
+  C:0038H         LINE#         27
+  C:003BH         LINE#         28
+  C:003EH         LINE#         29
+  C:0040H         LINE#         30
+  C:0043H         LINE#         31
+  C:0046H         LINE#         32
+  C:0049H         LINE#         33
+  C:004BH         LINE#         34
+  C:004DH         LINE#         35
+  C:004FH         LINE#         36
+  C:0051H         LINE#         37
+  C:0053H         LINE#         38
+  C:0054H         LINE#         40
+  C:0056H         LINE#         41
+  C:0058H         LINE#         42
+  C:005BH         LINE#         43
+  C:005EH         LINE#         44
+  C:0060H         LINE#         45
+  C:0061H         LINE#         47
+  C:0062H         LINE#         48
+  C:0065H         LINE#         49
+  C:0068H         LINE#         50
+  C:006BH         LINE#         51
+  C:006DH         LINE#         52
+  C:0070H         LINE#         53
+  C:0072H         LINE#         54
+  C:0075H         LINE#         56
+  C:0078H         LINE#         57
+  C:007BH         LINE#         58
+  C:007DH         LINE#         59
+  C:007FH         LINE#         60
+  C:0081H         LINE#         61
+  C:0084H         LINE#         62
+  C:0086H         LINE#         64
+  C:0088H         LINE#         65
+  C:008BH         LINE#         66
+  C:008EH         LINE#         67
+  -------         ENDMOD        TEST1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0068H BYTE ( 5%) *
+******************************************************************************
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/14/2016  23:40:51  PAGE 3
+
+
+Program Size: data=8.0 xdata=0 code=143
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

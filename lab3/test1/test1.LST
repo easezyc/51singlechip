@@ -1,0 +1,91 @@
+A51 MACRO ASSEMBLER  TEST1                                                                11/15/2016 14:34:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test1.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE test1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  00A7                 1     E_G     BIT     P2.7
+  00A6                 2     E_R     BIT     P2.6
+  00A5                 3     S_G     BIT     P2.5
+  00A4                 4     S_R     BIT     P2.4
+  00A3                 5     W_G     BIT     P2.3
+  00A2                 6     W_R     BIT     P2.2
+  00A1                 7     N_G     BIT     P2.1
+  00A0                 8     N_R     BIT     P2.0
+  00A0                 9     A_LAMP  EQU     P2
+  0010                10     LEN_GR  EQU     10H
+0000                  11             ORG     0000H
+0000 020300           12             LJMP    START
+0300                  13             ORG     0300H
+0300 120339           14     START:  LCALL   INIT
+0303                  15     MLOOP:  
+0303 C2A7             16             CLR             E_G
+0305 D2A6             17             SETB    E_R
+0307 D2A1             18             SETB    N_G
+0309 C2A0             19             CLR             N_R
+030B 7D10             20             MOV     R5,#LEN_GR
+030D 120343           21             LCALL   DELAY
+0310 D2A7             22             SETB    E_G
+0312 C2A6             23             CLR             E_R
+0314 D2A2             24             SETB    W_R
+0316 C2A3             25             CLR             W_G
+0318 7D10             26             MOV     R5,#LEN_GR
+031A 120343           27             LCALL   DELAY
+031D D2A3             28             SETB    W_G
+031F C2A2             29             CLR             W_R
+0321 D2A4             30             SETB    S_R
+0323 C2A5             31             CLR             S_G
+0325 7D10             32             MOV     R5,#LEN_GR
+0327 120343           33             LCALL   DELAY
+032A D2A5             34             SETB    S_G
+032C C2A4             35             CLR             S_R
+032E D2A0             36             SETB    N_R
+0330 C2A1             37             CLR             N_G
+0332 7D10             38             MOV     R5,#LEN_GR
+0334 120343           39             LCALL   DELAY
+0337 80CA             40             SJMP    MLOOP
+0339 75A0FF           41     INIT:   MOV     A_LAMP,#0FFH
+033C C2A2             42             CLR     W_R
+033E C2A0             43             CLR     N_R
+0340 C2A4             44             CLR     S_R
+0342 22               45             RET
+0343 7F00             46     DELAY:  MOV     R7,#00H
+0345 7E00             47             MOV     R6,#00H
+0347 DFFE             48     LOOP:   DJNZ    R7,LOOP
+0349 DEFC             49             DJNZ    R6,LOOP
+034B DDFA             50             DJNZ    R5,LOOP
+034D 22               51             RET
+                      52             END
+A51 MACRO ASSEMBLER  TEST1                                                                11/15/2016 14:34:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+DELAY. . . . . . .  C ADDR   0343H   A   
+E_G. . . . . . . .  B ADDR   00A0H.7 A   
+E_R. . . . . . . .  B ADDR   00A0H.6 A   
+INIT . . . . . . .  C ADDR   0339H   A   
+LEN_GR . . . . . .  N NUMB   0010H   A   
+LOOP . . . . . . .  C ADDR   0347H   A   
+MLOOP. . . . . . .  C ADDR   0303H   A   
+N_G. . . . . . . .  B ADDR   00A0H.1 A   
+N_R. . . . . . . .  B ADDR   00A0H.0 A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0300H   A   
+S_G. . . . . . . .  B ADDR   00A0H.5 A   
+S_R. . . . . . . .  B ADDR   00A0H.4 A   
+W_G. . . . . . . .  B ADDR   00A0H.3 A   
+W_R. . . . . . . .  B ADDR   00A0H.2 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

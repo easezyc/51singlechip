@@ -1,0 +1,61 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/15/2016  19:22:05  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE paoma.obj TO paoma RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  paoma.obj (PAOMA)
+
+
+LINK MAP OF MODULE:  paoma (PAOMA)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004AH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  paoma (PAOMA)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PAOMA
+  C:003FH         SYMBOL        DELAY
+  N:00FEH         SYMBOL        INIT
+  D:00A0H         SYMBOL        LAMP
+  N:0010H         SYMBOL        LEN
+  C:0043H         SYMBOL        LOOP
+  C:0033H         SYMBOL        MLOOP
+  D:00A0H         SYMBOL        P2
+  C:0030H         SYMBOL        START
+  C:0000H         LINE#         5
+  C:0030H         LINE#         7
+  C:0033H         LINE#         8
+  C:0035H         LINE#         9
+  C:0038H         LINE#         10
+  C:003AH         LINE#         11
+  C:003BH         LINE#         12
+  C:003DH         LINE#         13
+  C:003FH         LINE#         14
+  C:0041H         LINE#         15
+  C:0043H         LINE#         16
+  C:0045H         LINE#         17
+  C:0047H         LINE#         18
+  C:0049H         LINE#         19
+  -------         ENDMOD        PAOMA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001DH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=74
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

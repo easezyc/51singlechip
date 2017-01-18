@@ -1,0 +1,91 @@
+A51 MACRO ASSEMBLER  TEST1                                                                11/19/2016 15:23:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test1.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE test1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  00A0                 1     A_LAMP  EQU             P2
+  0066                 2     EW_G    EQU             01100110B
+  00FF                 3     A_RED   EQU             11111111B
+  0025                 4     LEN_GR  EQU             25H
+  0005                 5     LEN_SP  EQU             5H
+0000                   6                     ORG             0000H
+0000 020030            7                     LJMP    START
+0003                   8                     ORG             0003H
+0003 020055            9                     LJMP    INT0_S
+0030                  10                     ORG             0030H
+0030 758160           11     START:  MOV             SP,#60H
+0033 120040           12                     LCALL   INIT
+0036 7D25             13     MLOOP:  MOV             R5,#LEN_GR
+0038 12004A           14                     LCALL   DELAY
+003B 63A0FF           15                     XRL             A_LAMP,#0FFH
+003E 80F6             16                     SJMP    MLOOP
+0040 75A066           17     INIT:   MOV             A_LAMP,#EW_G
+0043 D288             18                     SETB    IT0
+0045 D2A8             19                     SETB    EX0
+0047 D2AF             20                     SETB    EA
+0049 22               21                     RET
+004A 7F00             22     DELAY:  MOV             R7,#00H
+004C 7E00             23                     MOV             R6,#00H
+004E DFFE             24     LOOP:   DJNZ    R7,LOOP
+0050 DEFC             25                     DJNZ    R6,LOOP
+0052 DDFA             26                     DJNZ    R5,LOOP
+0054 22               27                     RET
+0055 C2AF             28     INT0_S: CLR             EA
+0057 C0D0             29                     PUSH    PSW
+0059 E5A0             30                     MOV             A,A_LAMP
+005B C0E0             31                     PUSH    ACC
+005D C2D4             32                     CLR             RS1
+005F D2D3             33                     SETB    RS0
+0061 D2AF             34                     SETB    EA
+0063 75A0FF           35                     MOV             A_LAMP,#A_RED
+0066 790A             36                     MOV             R1,#0AH
+0068 7D05             37     T:              MOV             R5,#LEN_SP
+006A 12004A           38                     LCALL   DELAY
+006D 63A0FF           39                     XRL             A_LAMP,#0FFH
+0070 D9F6             40                     DJNZ    R1,T
+0072 C2AF             41                     CLR             EA
+0074 D0E0             42                     POP             ACC
+0076 F5A0             43                     MOV             A_LAMP,A
+0078 D0D0             44                     POP             PSW
+007A D2AF             45                     SETB    EA
+007C 32               46                     RETI
+                      47                     END
+A51 MACRO ASSEMBLER  TEST1                                                                11/19/2016 15:23:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+A_RED. . . . . . .  N NUMB   00FFH   A   
+DELAY. . . . . . .  C ADDR   004AH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EW_G . . . . . . .  N NUMB   0066H   A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+INIT . . . . . . .  C ADDR   0040H   A   
+INT0_S . . . . . .  C ADDR   0055H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+LEN_GR . . . . . .  N NUMB   0025H   A   
+LEN_SP . . . . . .  N NUMB   0005H   A   
+LOOP . . . . . . .  C ADDR   004EH   A   
+MLOOP. . . . . . .  C ADDR   0036H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+START. . . . . . .  C ADDR   0030H   A   
+T. . . . . . . . .  C ADDR   0068H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

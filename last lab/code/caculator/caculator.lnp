@@ -1,0 +1,8 @@
+"dis.obj",
+"function.obj",
+"declare.obj",
+"input.obj",
+"sound.obj",
+"error.obj" 
+TO "caculator" Rtx51Tiny 
+RAMSIZE(256) 

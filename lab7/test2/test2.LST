@@ -1,0 +1,207 @@
+A51 MACRO ASSEMBLER  TEST2                                                                12/23/2016 17:09:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test2.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE test2.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0020                 1     T1MOD_W EQU     00100000B
+                       2                             ;GATE1=0
+                       3                             ;C/T1=0
+                       4                             ;M1=1,M0=0
+  00FD                 5     BPS_I   EQU     0FDH
+  0070                 6     COMM    DATA    070H
+  0000                 7     FLAG    BIT             00H
+  00A0                 8     A_LAMP  EQU             P2
+  006A                 9     E_G_D   EQU             01101010B
+  00A6                10     W_G_D   EQU             10100110B
+  009A                11     S_G_D   EQU             10011010B
+  00A9                12     N_G_D   EQU             10101001B
+0000                  13                     ORG             0000H
+0000 020030           14                     LJMP    START
+0023                  15                     ORG             0023H
+0023 0200F6           16                     LJMP    RS232_S
+0030                  17                     ORG             0030H
+0030 1200E0           18     START:  LCALL   INIT
+0033 C200             19     MLOOP:  CLR             FLAG
+0035 3000FD           20     LOOP:   JNB             FLAG,LOOP
+0038 E570             21                     MOV             A,COMM
+003A B43007           22                     CJNE    A,#'0',N_C1
+003D 7400             23                     MOV             A,#00H
+003F 12011D           24                     LCALL   DISP
+0042 80EF             25                 SJMP        MLOOP
+0044 B43107           26     N_C1:   CJNE    A,#'1',N_C2
+0047 7401             27                     MOV             A,#01H
+0049 12011D           28                     LCALL   DISP
+004C 80E5             29                 SJMP        MLOOP
+004E B43207           30     N_C2:   CJNE    A,#'2',N_C3
+0051 7402             31                     MOV             A,#02H
+0053 12011D           32                     LCALL   DISP
+0056 80DB             33                 SJMP        MLOOP
+0058 B43307           34     N_C3:   CJNE    A,#'3',N_C4
+005B 7403             35                     MOV             A,#03H
+005D 12011D           36                     LCALL   DISP
+0060 80D1             37                 SJMP        MLOOP
+0062 B43407           38     N_C4:   CJNE    A,#'4',N_C5
+0065 7404             39                     MOV             A,#04H
+0067 12011D           40                     LCALL   DISP
+006A 80C7             41                 SJMP        MLOOP
+006C B43507           42     N_C5:   CJNE    A,#'5',N_C6
+006F 7405             43                     MOV             A,#05H
+0071 12011D           44                     LCALL   DISP
+0074 80BD             45                 SJMP        MLOOP
+0076 B43607           46     N_C6:   CJNE    A,#'6',N_C7
+0079 7406             47                     MOV             A,#06H
+007B 12011D           48                     LCALL   DISP
+007E 80B3             49                 SJMP        MLOOP
+0080 B43707           50     N_C7:   CJNE    A,#'7',N_C8
+0083 7407             51                     MOV             A,#07H
+0085 12011D           52                     LCALL   DISP
+0088 80A9             53                 SJMP        MLOOP
+008A B43809           54     N_C8:   CJNE    A,#'8',N_C9
+008D 7408             55                     MOV             A,#08H
+008F 12011D           56                     LCALL   DISP
+0092 809F             57                 SJMP        MLOOP
+0094 809D             58     T:              SJMP    MLOOP
+A51 MACRO ASSEMBLER  TEST2                                                                12/23/2016 17:09:45 PAGE     2
+
+0096 B43907           59     N_C9:   CJNE    A,#'9',N_CA
+0099 7409             60                     MOV             A,#09H
+009B 12011D           61                     LCALL   DISP
+009E 8093             62                 SJMP        MLOOP
+00A0 B44107           63     N_CA:   CJNE    A,#'A',N_CB
+00A3 740A             64                     MOV             A,#0AH
+00A5 12011D           65                     LCALL   DISP
+00A8 8089             66                 SJMP        MLOOP
+00AA B44207           67     N_CB:   CJNE    A,#'B',N_CC
+00AD 740B             68                     MOV             A,#0BH
+00AF 12011D           69                     LCALL   DISP
+00B2 80E0             70                 SJMP        T
+00B4 B44307           71     N_CC:   CJNE    A,#'C',N_CD
+00B7 740C             72                     MOV             A,#0CH
+00B9 12011D           73                     LCALL   DISP
+00BC 80D6             74                 SJMP        T
+00BE B44407           75     N_CD:   CJNE    A,#'D',N_CE
+00C1 740D             76                     MOV             A,#0DH
+00C3 12011D           77                     LCALL   DISP
+00C6 80CC             78                 SJMP        T
+00C8 B44507           79     N_CE:   CJNE    A,#'E',N_CF
+00CB 740E             80                     MOV             A,#0EH
+00CD 12011D           81                     LCALL   DISP
+00D0 80C2             82                 SJMP        T
+00D2 B446FD           83     N_CF:   CJNE    A,#'F',N_CF
+00D5 740F             84                     MOV             A,#0FH
+00D7 12011D           85                     LCALL   DISP
+00DA 80B8             86                 SJMP        T
+00DC C2B5             87     EL:             CLR             T1
+00DE 0133             88                     AJMP    MLOOP
+00E0 D29F             89     INIT:   SETB    SM0
+00E2 D29E             90                     SETB    SM1
+00E4 D29C             91                     SETB    REN
+00E6 758920           92                     MOV             TMOD,#T1MOD_W
+00E9 758DFD           93                     MOV             TH1,#BPS_I
+00EC 758BFD           94                     MOV             TL1,#BPS_I
+00EF D28E             95                     SETB    TR1
+00F1 D2AC             96                     SETB    ES
+00F3 D2AF             97                     SETB    EA
+00F5 22               98                     RET
+00F6                  99     RS232_S:
+00F6 309903          100                     JNB             TI,RECE
+00F9 C299            101                     CLR             TI
+00FB 32              102                     RETI
+00FC E599            103     RECE:   MOV             A,SBUF
+00FE 30D005          104                     JNB             P,P_Z
+0101 309A10          105                     JNB             RB8,ERROR
+0104 8003            106                     SJMP    RIGHT
+0106 209A0B          107     P_Z:    JB              RB8,ERROR
+0109 F570            108     RIGHT:  MOV             COMM,A
+010B 7459            109                     MOV             A,#'Y'
+010D F599            110                     MOV             SBUF,A
+010F D200            111                     SETB    FLAG
+0111 C298            112                     CLR             RI
+0113 32              113                     RETI
+0114 744E            114     ERROR:  MOV             A,#'N'
+0116 F599            115                     MOV             SBUF,A
+0118 C200            116                     CLR             FLAG
+011A C298            117                     CLR             RI
+011C 32              118                     RETI
+011D 900124          119     DISP:   MOV             DPTR,#WTAB
+0120 93              120                     MOVC    A,@A+DPTR
+0121 F5A0            121                     MOV             A_LAMP, A
+0123 22              122                     RET
+0124 C0F9A4B0        123     WTAB:   DB              0C0H,0F9H,0A4H,0B0H
+0128 999282F8        124                     DB              099H,092H,082H,0F8H
+A51 MACRO ASSEMBLER  TEST2                                                                12/23/2016 17:09:45 PAGE     3
+
+012C 80908883        125                     DB              080H,090H,088H,083H
+0130 C6A1868E        126                     DB              0C6H,0A1H,086H,08EH
+                     127                     END
+A51 MACRO ASSEMBLER  TEST2                                                                12/23/2016 17:09:45 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+BPS_I. . . . . . .  N NUMB   00FDH   A   
+COMM . . . . . . .  D ADDR   0070H   A   
+DISP . . . . . . .  C ADDR   011DH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EL . . . . . . . .  C ADDR   00DCH   A   
+ERROR. . . . . . .  C ADDR   0114H   A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+E_G_D. . . . . . .  N NUMB   006AH   A   
+FLAG . . . . . . .  B ADDR   0020H.0 A   
+INIT . . . . . . .  C ADDR   00E0H   A   
+LOOP . . . . . . .  C ADDR   0035H   A   
+MLOOP. . . . . . .  C ADDR   0033H   A   
+N_C1 . . . . . . .  C ADDR   0044H   A   
+N_C2 . . . . . . .  C ADDR   004EH   A   
+N_C3 . . . . . . .  C ADDR   0058H   A   
+N_C4 . . . . . . .  C ADDR   0062H   A   
+N_C5 . . . . . . .  C ADDR   006CH   A   
+N_C6 . . . . . . .  C ADDR   0076H   A   
+N_C7 . . . . . . .  C ADDR   0080H   A   
+N_C8 . . . . . . .  C ADDR   008AH   A   
+N_C9 . . . . . . .  C ADDR   0096H   A   
+N_CA . . . . . . .  C ADDR   00A0H   A   
+N_CB . . . . . . .  C ADDR   00AAH   A   
+N_CC . . . . . . .  C ADDR   00B4H   A   
+N_CD . . . . . . .  C ADDR   00BEH   A   
+N_CE . . . . . . .  C ADDR   00C8H   A   
+N_CF . . . . . . .  C ADDR   00D2H   A   
+N_G_D. . . . . . .  N NUMB   00A9H   A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P_Z. . . . . . . .  C ADDR   0106H   A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RECE . . . . . . .  C ADDR   00FCH   A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RIGHT. . . . . . .  C ADDR   0109H   A   
+RS232_S. . . . . .  C ADDR   00F6H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+START. . . . . . .  C ADDR   0030H   A   
+S_G_D. . . . . . .  N NUMB   009AH   A   
+T. . . . . . . . .  C ADDR   0094H   A   
+T1 . . . . . . . .  B ADDR   00B0H.5 A   
+T1MOD_W. . . . . .  N NUMB   0020H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+WTAB . . . . . . .  C ADDR   0124H   A   
+W_G_D. . . . . . .  N NUMB   00A6H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

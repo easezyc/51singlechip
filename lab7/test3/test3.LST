@@ -1,0 +1,124 @@
+A51 MACRO ASSEMBLER  TEST3                                                                12/20/2016 21:48:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test3.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE test3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0020                 1     T1MOD_W EQU     00100000B
+                       2                             ;GATE1=0
+                       3                             ;C/T1=0
+                       4                             ;M1=1,M0=0
+  00FD                 5     BPS_I   EQU     0FDH
+  0070                 6     COMM    DATA    070H
+  0000                 7     FLAG    BIT             00H
+  00A0                 8     A_LAMP  EQU             P2
+  006A                 9     E_G_D   EQU             01101010B
+  00A6                10     W_G_D   EQU             10100110B
+  009A                11     S_G_D   EQU             10011010B
+  00A9                12     N_G_D   EQU             10101001B
+0000                  13                     ORG             0000H
+0000 020030           14                     LJMP    START
+0023                  15                     ORG             0023H
+0023 02006D           16                     LJMP    RS232_S
+0030                  17                     ORG             0030H
+0030 120057           18     START:  LCALL   INIT
+0033 C200             19     MLOOP:  CLR             FLAG
+0035 3000FD           20     LOOP:   JNB             FLAG,LOOP
+0038 E570             21                     MOV             A,COMM
+003A B43105           22                     CJNE    A,#'1',N_C1
+003D 75A06A           23                     MOV             A_LAMP,#E_G_D
+0040 80F1             24                     SJMP    MLOOP
+0042 B43305           25     N_C1:   CJNE    A,#'3',N_C2
+0045 75A0A6           26                     MOV             A_LAMP,#W_G_D
+0048 80E9             27                     SJMP    MLOOP
+004A B43205           28     N_C2:   CJNE    A,#'2',N_C3
+004D 75A09A           29                     MOV             A_LAMP,#S_G_D
+0050 80E1             30                     SJMP    MLOOP
+0052 75A0A9           31     N_C3:   MOV             A_LAMP,#N_G_D
+0055 80DC             32                     SJMP    MLOOP
+0057 D29F             33     INIT:   SETB    SM0
+0059 D29E             34                     SETB    SM1
+005B D29C             35                     SETB    REN
+005D 758920           36                     MOV             TMOD,#T1MOD_W
+0060 758DFD           37                     MOV             TH1,#BPS_I
+0063 758BFD           38                     MOV             TL1,#BPS_I
+0066 D28E             39                     SETB    TR1
+0068 D2AC             40                     SETB    ES
+006A D2AF             41                     SETB    EA
+006C 22               42                     RET
+006D                  43     RS232_S:
+006D 309903           44                     JNB             TI,RECE
+0070 C299             45                     CLR             TI
+0072 32               46                     RETI
+0073 E599             47     RECE:   MOV             A,SBUF
+0075 30D005           48                     JNB             P,P_Z
+0078 309A10           49                     JNB             RB8,ERROR
+007B 8003             50                     SJMP    RIGHT
+007D 209A0B           51     P_Z:    JB              RB8,ERROR
+0080 F570             52     RIGHT:  MOV             COMM,A
+0082 7459             53                     MOV             A,#'Y'
+0084 F599             54                     MOV             SBUF,A
+0086 D200             55                     SETB    FLAG
+0088 C298             56                     CLR             RI
+008A 32               57                     RETI
+008B 744E             58     ERROR:  MOV             A,#'N'
+A51 MACRO ASSEMBLER  TEST3                                                                12/20/2016 21:48:27 PAGE     2
+
+008D F599             59                     MOV             SBUF,A
+008F C200             60                     CLR             FLAG
+0091 C298             61                     CLR             RI
+0093 32               62                     RETI
+                      63                     END
+A51 MACRO ASSEMBLER  TEST3                                                                12/20/2016 21:48:27 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+BPS_I. . . . . . .  N NUMB   00FDH   A   
+COMM . . . . . . .  D ADDR   0070H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ERROR. . . . . . .  C ADDR   008BH   A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+E_G_D. . . . . . .  N NUMB   006AH   A   
+FLAG . . . . . . .  B ADDR   0020H.0 A   
+INIT . . . . . . .  C ADDR   0057H   A   
+LOOP . . . . . . .  C ADDR   0035H   A   
+MLOOP. . . . . . .  C ADDR   0033H   A   
+N_C1 . . . . . . .  C ADDR   0042H   A   
+N_C2 . . . . . . .  C ADDR   004AH   A   
+N_C3 . . . . . . .  C ADDR   0052H   A   
+N_G_D. . . . . . .  N NUMB   00A9H   A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P_Z. . . . . . . .  C ADDR   007DH   A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RECE . . . . . . .  C ADDR   0073H   A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RIGHT. . . . . . .  C ADDR   0080H   A   
+RS232_S. . . . . .  C ADDR   006DH   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+START. . . . . . .  C ADDR   0030H   A   
+S_G_D. . . . . . .  N NUMB   009AH   A   
+T1MOD_W. . . . . .  N NUMB   0020H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+W_G_D. . . . . . .  N NUMB   00A6H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

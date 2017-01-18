@@ -1,0 +1,158 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/26/2016  14:27:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE test3.obj TO test3 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  test3.obj (TEST3)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  test3 (TEST3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0009H     UNIT         ?DT?TEST3
+            IDATA   0011H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     000DH                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+                    001EH     07E2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0049H     UNIT         ?CO?TEST3
+            CODE    08D5H     0041H     UNIT         ?PR?MAIN?TEST3
+            CODE    0916H     0010H     UNIT         ?C_INITSEG
+            CODE    0926H     000EH     UNIT         ?PR?TIMER_INITIAL?TEST3
+            CODE    0934H     000DH     UNIT         ?PR?TIME0?TEST3
+            CODE    0941H     000DH     UNIT         ?PR?TIME1?TEST3
+
+
+
+OVERLAY MAP OF MODULE:   test3 (TEST3)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TEST3
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEST3
+  +--> ?PR?TIMER_INITIAL?TEST3
+  +--> ?CO?TEST3
+
+
+
+SYMBOL TABLE OF MODULE:  test3 (TEST3)
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/26/2016  14:27:04  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST3
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        ic_tmp
+  D:0009H         PUBLIC        note_h
+  D:0090H         PUBLIC        P1
+  D:000AH         PUBLIC        note_l
+  D:000BH         PUBLIC        tint_c
+  B:00A8H.7       PUBLIC        EA
+  D:000CH         PUBLIC        index
+  C:08D5H         PUBLIC        main
+  C:08C4H         PUBLIC        musicn_del
+  D:0089H         PUBLIC        TMOD
+  D:000DH         PUBLIC        temp
+  C:088CH         PUBLIC        musicfreqh
+  C:0934H         PUBLIC        Time0
+  C:0941H         PUBLIC        Time1
+  C:08A8H         PUBLIC        musicfreql
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  C:08CCH         PUBLIC        musicnotet
+  D:000EH         PUBLIC        T_Mod
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  D:000FH         PUBLIC        T10msH
+  D:0010H         PUBLIC        T10msL
+  B:0090H.0       PUBLIC        speaker
+  C:0926H         PUBLIC        timer_initial
+  -------         PROC          TIMER_INITIAL
+  C:0926H         LINE#         26
+  C:0926H         LINE#         27
+  C:0929H         LINE#         28
+  C:092CH         LINE#         29
+  C:092FH         LINE#         30
+  C:0931H         LINE#         31
+  C:0933H         LINE#         32
+  -------         ENDPROC       TIMER_INITIAL
+  -------         PROC          TIME0
+  C:0934H         LINE#         33
+  C:0934H         LINE#         34
+  C:0936H         LINE#         35
+  C:0939H         LINE#         36
+  C:093CH         LINE#         37
+  C:093EH         LINE#         38
+  C:0940H         LINE#         39
+  -------         ENDPROC       TIME0
+  -------         PROC          TIME1
+  C:0941H         LINE#         40
+  C:0941H         LINE#         41
+  C:0943H         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/26/2016  14:27:04  PAGE 3
+
+
+  C:0946H         LINE#         43
+  C:0949H         LINE#         44
+  C:094BH         LINE#         45
+  C:094DH         LINE#         46
+  -------         ENDPROC       TIME1
+  -------         PROC          MAIN
+  C:08D5H         LINE#         47
+  C:08D5H         LINE#         48
+  C:08D5H         LINE#         49
+  C:08D5H         LINE#         50
+  C:08D8H         LINE#         51
+  C:08DBH         LINE#         52
+  C:08E6H         LINE#         53
+  C:08E8H         LINE#         54
+  C:08EAH         LINE#         55
+  C:08ECH         LINE#         56
+  C:08EFH         LINE#         57
+  C:08F7H         LINE#         58
+  C:08F9H         LINE#         59
+  C:0900H         LINE#         60
+  C:0907H         LINE#         61
+  C:0909H         LINE#         62
+  C:090BH         LINE#         63
+  C:090DH         LINE#         64
+  C:0912H         LINE#         65
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEST3
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00C7H BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=18.0 xdata=0 code=343
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,214 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/26/2016  15:19:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE test4.obj TO test4 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  test4.obj (TEST4)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  test4 (TEST4)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0009H     UNIT         ?DT?TEST4
+            DATA    0011H     0002H     UNIT         _DATA_GROUP_
+            IDATA   0013H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     000DH                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+                    001EH     07E2H                  *** GAP ***
+            CODE    0800H     0188H     UNIT         ?CO?TEST4
+            CODE    0988H     010DH     UNIT         ?PR?MAIN?TEST4
+            CODE    0A95H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0B21H     0010H     UNIT         ?C_INITSEG
+            CODE    0B31H     000EH     UNIT         ?PR?TIMER_INITIAL?TEST4
+            CODE    0B3FH     000DH     UNIT         ?PR?TIME0?TEST4
+            CODE    0B4CH     000DH     UNIT         ?PR?TIME1?TEST4
+
+
+
+OVERLAY MAP OF MODULE:   test4 (TEST4)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?TEST4
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEST4                  0011H    0002H
+  +--> ?PR?TIMER_INITIAL?TEST4
+  +--> ?CO?TEST4
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/26/2016  15:19:46  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  test4 (TEST4)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST4
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        ic_tmp
+  D:0009H         PUBLIC        note_h
+  D:0090H         PUBLIC        P1
+  C:0858H         PUBLIC        musicnotet1
+  C:08ADH         PUBLIC        musicnotet2
+  D:000AH         PUBLIC        note_l
+  D:000BH         PUBLIC        tint_c
+  C:0912H         PUBLIC        musicnotet3
+  B:00A8H.7       PUBLIC        EA
+  C:0965H         PUBLIC        musicnotet4
+  D:000CH         PUBLIC        index
+  B:0090H.2       PUBLIC        sw1
+  B:0090H.3       PUBLIC        sw2
+  B:0090H.4       PUBLIC        sw3
+  B:0090H.5       PUBLIC        sw4
+  C:0988H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  D:000DH         PUBLIC        temp
+  C:0800H         PUBLIC        musicfreqh
+  C:0B3FH         PUBLIC        Time0
+  C:0B4CH         PUBLIC        Time1
+  C:081CH         PUBLIC        musicfreql
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  D:000EH         PUBLIC        T_Mod
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  C:0838H         PUBLIC        musicn_del1
+  C:0879H         PUBLIC        musicn_del2
+  C:08E2H         PUBLIC        musicn_del3
+  C:0943H         PUBLIC        musicn_del4
+  D:000FH         PUBLIC        T10msH
+  D:0010H         PUBLIC        T10msL
+  B:0090H.0       PUBLIC        speaker
+  C:0B31H         PUBLIC        timer_initial
+  -------         PROC          TIMER_INITIAL
+  C:0B31H         LINE#         48
+  C:0B31H         LINE#         49
+  C:0B34H         LINE#         50
+  C:0B37H         LINE#         51
+  C:0B3AH         LINE#         52
+  C:0B3CH         LINE#         53
+  C:0B3EH         LINE#         54
+  -------         ENDPROC       TIMER_INITIAL
+  -------         PROC          TIME0
+  C:0B3FH         LINE#         55
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/26/2016  15:19:46  PAGE 3
+
+
+  C:0B3FH         LINE#         56
+  C:0B41H         LINE#         57
+  C:0B44H         LINE#         58
+  C:0B47H         LINE#         59
+  C:0B49H         LINE#         60
+  C:0B4BH         LINE#         61
+  -------         ENDPROC       TIME0
+  -------         PROC          TIME1
+  C:0B4CH         LINE#         62
+  C:0B4CH         LINE#         63
+  C:0B4EH         LINE#         64
+  C:0B51H         LINE#         65
+  C:0B54H         LINE#         66
+  C:0B56H         LINE#         67
+  C:0B58H         LINE#         68
+  -------         ENDPROC       TIME1
+  -------         PROC          MAIN
+  -------         DO            
+  D:0011H         SYMBOL        mark
+  D:0006H         SYMBOL        keep
+  D:0004H         SYMBOL        t
+  -------         ENDDO         
+  C:0988H         LINE#         69
+  C:0988H         LINE#         70
+  C:0988H         LINE#         71
+  C:098EH         LINE#         72
+  C:0992H         LINE#         73
+  C:0995H         LINE#         74
+  C:0995H         LINE#         75
+  C:0998H         LINE#         76
+  C:099BH         LINE#         77
+  C:09ADH         LINE#         78
+  C:09BFH         LINE#         79
+  C:09D1H         LINE#         80
+  C:09E5H         LINE#         81
+  C:09F0H         LINE#         82
+  C:09F3H         LINE#         83
+  C:09F9H         LINE#         84
+  C:09F9H         LINE#         85
+  C:09FCH         LINE#         86
+  C:0A02H         LINE#         87
+  C:0A02H         LINE#         88
+  C:0A05H         LINE#         89
+  C:0A0BH         LINE#         90
+  C:0A0BH         LINE#         91
+  C:0A0EH         LINE#         92
+  C:0A14H         LINE#         93
+  C:0A14H         LINE#         94
+  C:0A16H         LINE#         95
+  C:0A18H         LINE#         96
+  C:0A1AH         LINE#         97
+  C:0A1DH         LINE#         98
+  C:0A23H         LINE#         99
+  C:0A2BH         LINE#         100
+  C:0A30H         LINE#         101
+  C:0A30H         LINE#         102
+  C:0A32H         LINE#         103
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/26/2016  15:19:46  PAGE 4
+
+
+  C:0A38H         LINE#         104
+  C:0A40H         LINE#         105
+  C:0A45H         LINE#         106
+  C:0A45H         LINE#         107
+  C:0A47H         LINE#         108
+  C:0A4DH         LINE#         109
+  C:0A55H         LINE#         110
+  C:0A5AH         LINE#         111
+  C:0A5AH         LINE#         112
+  C:0A5CH         LINE#         113
+  C:0A62H         LINE#         114
+  C:0A6AH         LINE#         115
+  C:0A73H         LINE#         116
+  C:0A75H         LINE#         117
+  C:0A75H         LINE#         118
+  C:0A7DH         LINE#         119
+  C:0A85H         LINE#         120
+  C:0A87H         LINE#         121
+  C:0A89H         LINE#         122
+  C:0A8BH         LINE#         123
+  C:0A90H         LINE#         124
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEST4
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02D2H BYTE (35%) *
+******************************************************************************
+
+Program Size: data=20.0 xdata=0 code=866
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

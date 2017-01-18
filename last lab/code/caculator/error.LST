@@ -1,0 +1,48 @@
+C51 COMPILER V9.01   ERROR                                                                 12/25/2016 13:31:38 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE ERROR
+OBJECT MODULE PLACED IN error.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE error.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<head.h>
+   2          void error1() //错误1，数组越界,每个字符串不超过15个字符
+   3          {
+   4   1              strncpy(errorresult,"col over range",16);
+   5   1              showmark=3;
+   6   1              DisplayFlag=1;
+   7   1              addmark=0;
+   8   1              sound=1;
+   9   1      }
+  10          void error2() //错误2，数组越界，总共只能有20个字符串
+  11          {
+  12   1              sprintf(errorresult,"raw over range");
+  13   1              showmark=3;
+  14   1              DisplayFlag=1;
+  15   1              addmark=0;
+  16   1              sound=1;
+  17   1      }
+  18          void error3() //错误3，还没有输入数字就进行运算
+  19          {
+  20   1              sprintf(errorresult,"please input num");
+  21   1              showmark=3;
+  22   1              DisplayFlag=1;
+  23   1              addmark=0;
+  24   1              sound=1;
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    145    ----
+   CONSTANT SIZE    =     47    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

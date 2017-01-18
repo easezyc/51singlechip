@@ -1,0 +1,3 @@
+"ROM.obj" 
+TO "ROM" 
+RAMSIZE(256) 

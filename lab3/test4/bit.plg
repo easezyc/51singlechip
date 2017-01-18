@@ -1,0 +1,61 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\作业\微机\作业\lab3\test4\bit.uvproj
+Project File Date:  10/31/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling bit.asm...
+bit.asm(3): error A15: MISSING FACTOR
+bit.asm(5): error A9: SYNTAX ERROR
+bit.asm(5): error A9: SYNTAX ERROR
+bit.asm(5): error A9: SYNTAX ERROR
+bit.asm(6): error A9: SYNTAX ERROR
+bit.asm(6): error A9: SYNTAX ERROR
+bit.asm(6): error A9: SYNTAX ERROR
+bit.asm(7): error A9: SYNTAX ERROR
+bit.asm(7): error A9: SYNTAX ERROR
+bit.asm(7): error A9: SYNTAX ERROR
+bit.asm(9): error A9: SYNTAX ERROR
+bit.asm(9): error A9: SYNTAX ERROR
+bit.asm(9): error A9: SYNTAX ERROR
+bit.asm(11): error A9: SYNTAX ERROR
+bit.asm(11): error A9: SYNTAX ERROR
+bit.asm(11): error A9: SYNTAX ERROR
+bit.asm(12): error A45: UNDEFINED SYMBOL (PASS-2)
+bit.asm(16): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling bit.asm...
+bit.asm(3): error A15: MISSING FACTOR
+bit.asm(12): error A45: UNDEFINED SYMBOL (PASS-2)
+bit.asm(16): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling bit.asm...
+bit.asm(12): error A45: UNDEFINED SYMBOL (PASS-2)
+bit.asm(16): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling bit.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=80
+"bit" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling bit.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=80
+"bit" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling bit.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=80
+"bit" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling bit.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=80
+"bit" - 0 Error(s), 0 Warning(s).

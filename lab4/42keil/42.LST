@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  42                                                                   11/15/2016 18:37:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 42.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE 42.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0092                 1     SW1             BIT             P1.2
+  0093                 2     SW2             BIT             P1.3
+  0094                 3     SW3             BIT             P1.4
+  0095                 4     SW4             BIT             P1.5
+  00A0                 5     A_LAMP  EQU             P2
+  00A0                 6     C_LED   EQU             P2
+  0015                 7     THREE   EQU     15H
+  0025                 8     FIVE    EQU     25H
+  0066                 9     EW_G    EQU     01100110B
+  0099                10     NS_G    EQU     10011001B
+  0055                11     AL_G    EQU     01010101B
+  00AA                12     AL_R    EQU     10101010B
+0000                  13             ORG             0000H
+0000 020030           14             LJMP    START
+0030                  15             ORG             0030H
+0030 20920F           16     START:  JB      SW1,NEXT1
+0033 7401             17             MOV             A,#1
+0035 120083           18             LCALL   DISP
+0038 7D15             19             MOV     R5,#THREE
+003A 120078           20             LCALL   DELAY
+003D 75A066           21             MOV             A_LAMP,#EW_G
+0040 80EE             22             SJMP    START
+0042 20930F           23     NEXT1:  JB      SW2,NEXT2
+0045 7402             24             MOV             A,#2
+0047 120083           25             LCALL   DISP
+004A 7D15             26             MOV     R5,#THREE
+004C 120078           27             LCALL   DELAY
+004F 75A099           28             MOV             A_LAMP,#NS_G
+0052 80DC             29             SJMP    START
+0054 20940F           30     NEXT2:  JB      SW3,NEXT3
+0057 7403             31             MOV             A,#3
+0059 120083           32             LCALL   DISP
+005C 7D15             33             MOV     R5,#THREE
+005E 120078           34             LCALL   DELAY
+0061 75A055           35             MOV             A_LAMP,#AL_G
+0064 80CA             36             SJMP    START
+0066 2095C7           37     NEXT3:  JB      SW4,START
+0069 7404             38             MOV             A,#4
+006B 120083           39             LCALL   DISP
+006E 7D25             40             MOV     R5,#FIVE
+0070 120078           41             LCALL   DELAY
+0073 75A0AA           42             MOV             A_LAMP,#AL_R
+0076 80B8             43             SJMP    START
+0078 7F00             44     DELAY:  MOV             R7,#00H
+007A 7E00             45                     MOV             R6,#00H
+007C DFFE             46     LOOP:   DJNZ    R7,LOOP
+007E DEFC             47                     DJNZ    R6,LOOP
+0080 DDFA             48                     DJNZ    R5,LOOP
+0082 22               49                     RET
+0083 90008A           50     DISP:   MOV             DPTR,#WTAB
+0086 93               51                     MOVC    A,@A+DPTR
+0087 F5A0             52                     MOV             C_LED,A
+0089 22               53                     RET
+008A C0F9A4B0         54     WTAB:   DB      0C0H,0F9H,0A4H,0B0H
+008E 999282F8         55                     DB      099H,092H,082H,0F8H
+0092 80908883         56                     DB      080H,090H,088H,083H
+0096 C6A1868E         57                     DB      0C6H,0A1H,086H,08EH
+                      58             END
+A51 MACRO ASSEMBLER  42                                                                   11/15/2016 18:37:17 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AL_G . . . . . . .  N NUMB   0055H   A   
+AL_R . . . . . . .  N NUMB   00AAH   A   
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+C_LED. . . . . . .  D ADDR   00A0H   A   
+DELAY. . . . . . .  C ADDR   0078H   A   
+DISP . . . . . . .  C ADDR   0083H   A   
+EW_G . . . . . . .  N NUMB   0066H   A   
+FIVE . . . . . . .  N NUMB   0025H   A   
+LOOP . . . . . . .  C ADDR   007CH   A   
+NEXT1. . . . . . .  C ADDR   0042H   A   
+NEXT2. . . . . . .  C ADDR   0054H   A   
+NEXT3. . . . . . .  C ADDR   0066H   A   
+NS_G . . . . . . .  N NUMB   0099H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0030H   A   
+SW1. . . . . . . .  B ADDR   0090H.2 A   
+SW2. . . . . . . .  B ADDR   0090H.3 A   
+SW3. . . . . . . .  B ADDR   0090H.4 A   
+SW4. . . . . . . .  B ADDR   0090H.5 A   
+THREE. . . . . . .  N NUMB   0015H   A   
+WTAB . . . . . . .  C ADDR   008AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

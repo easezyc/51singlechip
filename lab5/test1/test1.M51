@@ -1,0 +1,101 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/19/2016  15:23:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE test1.obj TO test1 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  test1.obj (TEST1)
+
+
+LINK MAP OF MODULE:  test1 (TEST1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     007DH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  test1 (TEST1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST1
+  D:00E0H         SYMBOL        ACC
+  D:00A0H         SYMBOL        A_LAMP
+  N:00FFH         SYMBOL        A_RED
+  C:004AH         SYMBOL        DELAY
+  B:00A8H.7       SYMBOL        EA
+  N:0066H         SYMBOL        EW_G
+  B:00A8H.0       SYMBOL        EX0
+  C:0040H         SYMBOL        INIT
+  C:0055H         SYMBOL        INT0_S
+  B:0088H.0       SYMBOL        IT0
+  N:0025H         SYMBOL        LEN_GR
+  N:0005H         SYMBOL        LEN_SP
+  C:004EH         SYMBOL        LOOP
+  C:0036H         SYMBOL        MLOOP
+  D:00A0H         SYMBOL        P2
+  D:00D0H         SYMBOL        PSW
+  B:00D0H.3       SYMBOL        RS0
+  B:00D0H.4       SYMBOL        RS1
+  D:0081H         SYMBOL        SP
+  C:0030H         SYMBOL        START
+  C:0068H         SYMBOL        T
+  C:0000H         LINE#         7
+  C:0003H         LINE#         9
+  C:0030H         LINE#         11
+  C:0033H         LINE#         12
+  C:0036H         LINE#         13
+  C:0038H         LINE#         14
+  C:003BH         LINE#         15
+  C:003EH         LINE#         16
+  C:0040H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/19/2016  15:23:50  PAGE 2
+
+
+  C:0043H         LINE#         18
+  C:0045H         LINE#         19
+  C:0047H         LINE#         20
+  C:0049H         LINE#         21
+  C:004AH         LINE#         22
+  C:004CH         LINE#         23
+  C:004EH         LINE#         24
+  C:0050H         LINE#         25
+  C:0052H         LINE#         26
+  C:0054H         LINE#         27
+  C:0055H         LINE#         28
+  C:0057H         LINE#         29
+  C:0059H         LINE#         30
+  C:005BH         LINE#         31
+  C:005DH         LINE#         32
+  C:005FH         LINE#         33
+  C:0061H         LINE#         34
+  C:0063H         LINE#         35
+  C:0066H         LINE#         36
+  C:0068H         LINE#         37
+  C:006AH         LINE#         38
+  C:006DH         LINE#         39
+  C:0070H         LINE#         40
+  C:0072H         LINE#         41
+  C:0074H         LINE#         42
+  C:0076H         LINE#         43
+  C:0078H         LINE#         44
+  C:007AH         LINE#         45
+  C:007CH         LINE#         46
+  -------         ENDMOD        TEST1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0053H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=125
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

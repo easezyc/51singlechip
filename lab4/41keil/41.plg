@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\作业\微机\作业\lab4\41keil\41.uvproj
+Project File Date:  11/15/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling 41.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=846
+"41" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=8.0 xdata=0 code=846
+creating hex file from "41"...
+"41" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=8.0 xdata=0 code=846
+creating hex file from "41"...
+"41" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+creating library 41.LIB...
+TRANSFER
+"41.obj" 
+TO "41.LIB"
+LIB51 LIBRARY MANAGER V4.24
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2002
+"41.LIB" - 0 Error(s), 0 Warning(s).
+assembling 41.asm...
+41.asm - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=8.0 xdata=0 code=846
+"41" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=8.0 xdata=0 code=846
+"41" - 0 Error(s), 0 Warning(s).

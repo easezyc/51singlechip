@@ -1,0 +1,51 @@
+A51 MACRO ASSEMBLER  PAOMA                                                                11/15/2016 19:22:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN paoma.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE paoma.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  00A0                 1     LAMP    EQU             P2
+  00FE                 2     INIT    EQU             0FEH
+  0010                 3     LEN             EQU             10H
+0000                   4             ORG             0000H
+0000 020030            5             LJMP    START
+0030                   6             ORG             0030H
+0030 75A0FE            7     START:  MOV             LAMP,#INIT
+0033 7D10              8     MLOOP:  MOV             R5,#LEN
+0035 12003F            9                     LCALL   DELAY
+0038 E5A0             10                     MOV             A,LAMP
+003A 23               11                     RL              A
+003B F5A0             12                     MOV             LAMP,A
+003D 80F4             13                     SJMP  MLOOP
+003F 7F00             14     DELAY:  MOV             R7,#00H
+0041 7E00             15                     MOV             R6,#00H
+0043 DFFE             16     LOOP:   DJNZ    R7,LOOP
+0045 DEFC             17                     DJNZ    R6,LOOP
+0047 DDFA             18                     DJNZ    R5,LOOP
+0049 22               19                     RET
+                      20             END
+A51 MACRO ASSEMBLER  PAOMA                                                                11/15/2016 19:22:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   003FH   A   
+INIT . . . . . . .  N NUMB   00FEH   A   
+LAMP . . . . . . .  D ADDR   00A0H   A   
+LEN. . . . . . . .  N NUMB   0010H   A   
+LOOP . . . . . . .  C ADDR   0043H   A   
+MLOOP. . . . . . .  C ADDR   0033H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,23 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\作业\微机\作业\lab7\test2\test2.uvproj
+Project File Date:  12/20/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling test2.asm...
+test2.asm(88): error A51: TARGET OUT OF RANGE
+Target not created
+Build target 'Target 1'
+assembling test2.asm...
+test2.asm(88): error A51: TARGET OUT OF RANGE
+Target not created
+Build target 'Target 1'
+assembling test2.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=308
+creating hex file from "test2"...
+"test2" - 0 Error(s), 0 Warning(s).

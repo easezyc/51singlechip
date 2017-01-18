@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  ROM                                                                  10/31/2016 16:16:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN ROM.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE ROM.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG  0000H
+0000 020030            2             LJMP  START
+0030                   3             ORG  0030H
+0030                   4     START:
+0030 7800              5             MOV     R0,#00H
+0032 7450              6             MOV     A,#50H
+0034 900000            7             MOV     DPTR,#00H
+0037                   8     LOOP:
+0037 C0E0              9             PUSH    ACC
+0039 93               10             MOVC    A,@A+DPTR
+003A B4FF01           11             CJNE    A,#0FFH,F
+003D 08               12             INC     R0
+003E                  13     F:
+003E D0E0             14             POP     ACC
+0040 D5E0F4           15             DJNZ    ACC,LOOP
+0043 8850             16             MOV     50H,R0
+0045 80FE             17             SJMP    $
+                      18             END
+                                     
+A51 MACRO ASSEMBLER  ROM                                                                  10/31/2016 16:16:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+F. . . . . . . . .  C ADDR   003EH   A   
+LOOP . . . . . . .  C ADDR   0037H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

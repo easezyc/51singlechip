@@ -1,0 +1,37 @@
+C51 COMPILER V9.01   DECLARE                                                               12/25/2016 13:31:38 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DECLARE
+OBJECT MODULE PLACED IN declare.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE declare.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<head.h>
+   2          char KeyBuffer;
+   3          uchar mark1;    //标记list的行号
+   4          uchar mark2;    //标记list的列数
+   5          uchar mark3;    //用于检验电平变化
+   6          uchar addmark;  //用于标记一个数是否输入完成
+   7          uchar DisplayFlag;       //标记是否需要重新显示
+   8          uchar list[21][16];      //输入的字符串
+   9          double mem[20];          //字符串转变为数值
+  10          uchar null[16]="                ";         //清空
+  11          uchar result[16];        //存储计算结果
+  12          uchar errorresult[16];  //显示错误信息
+  13          uchar showmark;          //记录当前显示调用哪个函数
+  14          uchar sound;      //标记蜂鸣器是否需要发声
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    472    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

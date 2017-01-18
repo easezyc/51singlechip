@@ -1,0 +1,131 @@
+A51 MACRO ASSEMBLER  TEST1                                                                12/14/2016 23:40:51 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test1.OBJ
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE test1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0015                 1     TMOD_M  EQU     00010101B
+  00FF                 2     I_TH0   EQU     0FFH
+  00FD                 3     I_TL0   EQU     0FDH
+  003C                 4     I_TH1   EQU     03CH
+  00B0                 5     I_TL1   EQU     0B0H
+  0014                 6     A_TIME1 EQU     20
+  0064                 7     A_TIME5 EQU     100
+  00C8                 8     A_TIME10        EQU     200
+  00A0                 9     A_LAMP  EQU     P2
+  0099                10     SN_G    EQU     10011001B
+  0066                11     EW_G    EQU     01100110B
+  0000                12     MARK1   bit     0h      ;0表示东西绿灯1表示南北绿灯
+  0001                13     MARK2   bit     1h      ;0表示东西1s，1表示东西5s
+  0010                14     DEL_LEN EQU     10H
+0000                  15             ORG     0000H
+0000 020030           16             LJMP    START
+000B                  17             ORG     000BH
+000B 020054           18             LJMP    T0_S
+001B                  19             ORG     001BH
+001B 020061           20             LJMP    T1_S
+0030                  21             ORG     0030H
+0030 120035           22     START:  LCALL   INIT
+0033                  23     MLOOP:  
+0033 80FE             24             SJMP    MLOOP
+0035                  25     INIT:
+0035 758915           26             MOV     TMOD,#TMOD_M
+0038 758CFF           27             MOV     TH0,#I_TH0
+003B 758AFD           28             MOV     TL0,#I_TL0
+003E 7800             29             MOV     R0,#0
+0040 758D3C           30             MOV     TH1,#I_TH1
+0043 758BB0           31             MOV     TL1,#I_TL1
+0046 75A066           32             MOV     A_LAMP,#EW_G
+0049 D2A9             33             SETB    ET0
+004B D2AF             34             SETB    EA
+004D D28C             35             SETB    TR0
+004F D2AB             36             SETB    ET1
+0051 D28E             37             SETB    TR1
+0053 22               38             RET
+0054                  39     T0_S:
+0054 C2AF             40             CLR     EA
+0056 D201             41             SETB    MARK2
+0058 758CFF           42             MOV     TH0,#I_TH0
+005B 758AFD           43             MOV     TL0,#I_TL0
+005E D2AF             44             SETB    EA
+0060 32               45             RETI
+0061                  46     T1_S:   
+0061 08               47             INC     R0
+0062 20000D           48             JB      MARK1,TEN
+0065 200105           49             JB      MARK2,FIVE
+0068 B8141D           50     ONE:    CJNE    R0,#A_TIME1,EXIT
+006B 8008             51             SJMP    TIME
+006D B86418           52     FIVE:   CJNE    R0,#A_TIME5,EXIT
+0070 8003             53             SJMP    TIME
+0072 B8C813           54     TEN:    CJNE    R0,#A_TIME10,EXIT
+0075                  55     TIME:   
+0075 200009           56             JB      MARK1,EW
+0078 75A099           57     SN:     MOV     A_LAMP,#SN_G
+007B D200             58             SETB    MARK1
+A51 MACRO ASSEMBLER  TEST1                                                                12/14/2016 23:40:51 PAGE     2
+
+007D C201             59             CLR     MARK2
+007F 8005             60             SJMP    EX
+0081 75A066           61     EW:     MOV     A_LAMP,#EW_G
+0084 C200             62             CLR             MARK1   
+0086                  63     EX:     
+0086 7800             64             MOV     R0,#0
+0088 758D3C           65     EXIT:   MOV     TH1,#I_TH1
+008B 758BB0           66             MOV     TL1,#I_TL1
+008E 32               67             RETI
+                      68             END
+A51 MACRO ASSEMBLER  TEST1                                                                12/14/2016 23:40:51 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+A_LAMP . . . . . .  D ADDR   00A0H   A   
+A_TIME1. . . . . .  N NUMB   0014H   A   
+A_TIME10 . . . . .  N NUMB   00C8H   A   
+A_TIME5. . . . . .  N NUMB   0064H   A   
+DEL_LEN. . . . . .  N NUMB   0010H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+EW . . . . . . . .  C ADDR   0081H   A   
+EW_G . . . . . . .  N NUMB   0066H   A   
+EX . . . . . . . .  C ADDR   0086H   A   
+EXIT . . . . . . .  C ADDR   0088H   A   
+FIVE . . . . . . .  C ADDR   006DH   A   
+INIT . . . . . . .  C ADDR   0035H   A   
+I_TH0. . . . . . .  N NUMB   00FFH   A   
+I_TH1. . . . . . .  N NUMB   003CH   A   
+I_TL0. . . . . . .  N NUMB   00FDH   A   
+I_TL1. . . . . . .  N NUMB   00B0H   A   
+MARK1. . . . . . .  B ADDR   0020H.0 A   
+MARK2. . . . . . .  B ADDR   0020H.1 A   
+MLOOP. . . . . . .  C ADDR   0033H   A   
+ONE. . . . . . . .  C ADDR   0068H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SN . . . . . . . .  C ADDR   0078H   A   
+SN_G . . . . . . .  N NUMB   0099H   A   
+START. . . . . . .  C ADDR   0030H   A   
+T0_S . . . . . . .  C ADDR   0054H   A   
+T1_S . . . . . . .  C ADDR   0061H   A   
+TEN. . . . . . . .  C ADDR   0072H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TIME . . . . . . .  C ADDR   0075H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TMOD_M . . . . . .  N NUMB   0015H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
